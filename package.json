@@ -1,0 +1,62 @@
+{
+  "name": "react-smart-chatbot",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/types/Chatbot.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "prepare": "vite build"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.26.1",
+    "vite": "^6.3.1",
+    "vite-plugin-dts": "^4.5.3"
+  },
+  "files": [
+    "dist",
+    "dist/types/Chatbot.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/Chatbot.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apshuk21/react-ai-chatbot.git"
+  },
+  "author": "Apoorva Shukla",
+  "license": "MIT",
+  "notes": {
+    "main": "Ensures correct entry points for ES modules & CommonJS",
+    "types": "References generated TypeScript declarations",
+    "files": "Includes only built artifacts",
+    "exports": "Defines module resolution",
+    "peerDependencies": "Ensures React 19 compatibility",
+    "prepare": "Runs build before npm publish",
+    "repository": "Links to GitHub repository"
+  }
+}
