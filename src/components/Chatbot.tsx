@@ -65,3 +65,4 @@ const Chatbot = ({ onNavigate, onFilter }: ChatbotProps) => {
 };
 
 export default Chatbot;
+export type { ChatbotProps }
