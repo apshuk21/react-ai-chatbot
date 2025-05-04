@@ -2,19 +2,19 @@
   "name": "react-smart-chatbot",
   "version": "1.2.0",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/types/Chatbot.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": "vite build"
+    "prepare": "npm run build"
   },
-  "dependencies": {},
   "devDependencies": {
     "@eslint/js": "^9.22.0",
+    "@types/node": "^22.15.3",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
@@ -22,33 +22,29 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "rollup-plugin-postcss": "^4.0.2",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.1",
-    "vite-plugin-dts": "^4.5.3"
+    "vite-plugin-dts": "^4.5.3",
+    "vite-plugin-node-polyfills": "^0.23.0"
   },
+  "style": "dist/styles/react-smart-chatbot.css",
   "files": [
-    "dist",
-    "dist/types/Chatbot.d.ts"
+    "dist"
   ],
   "exports": {
     ".": {
-      "types": "./dist/types/Chatbot.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
     }
   },
   "peerDependencies": {
     "react": ">=18.0.0 <20.0.0",
     "react-dom": ">=18.0.0 <20.0.0"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    },
-    "react-dom": {
-      "optional": true
-    }
   },
   "repository": {
     "type": "git",
@@ -56,13 +52,8 @@
   },
   "author": "Apoorva Shukla",
   "license": "MIT",
-  "notes": {
-    "main": "Ensures correct entry points for ES modules & CommonJS",
-    "types": "References generated TypeScript declarations",
-    "files": "Includes only built artifacts",
-    "exports": "Defines module resolution",
-    "peerDependencies": "Ensures React 19 compatibility",
-    "prepare": "Runs build before npm publish",
-    "repository": "Links to GitHub repository"
+  "sideEffects": false,
+  "dependencies": {
+    "vite-plugin-lib-inject-css": "^2.2.2"
   }
 }

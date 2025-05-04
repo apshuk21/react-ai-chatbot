@@ -1,14 +1,16 @@
 import { useState } from "react";
 import "./chatbot.css";
 
-type ChatbotProps = {
-  apiUrl: string; // Backend API URL
+export type ChatbotProps = {
+  apiUrl?: string; // Backend API URL
   onNavigate?: (url: string) => void; // Function for navigation
   onFilter?: (query: Record<string, string>) => void; // Function for AG Grid filtering
 };
 
 const Chatbot = ({ onNavigate, onFilter }: ChatbotProps) => {
-  const [messages, setMessages] = useState<{ text: string; sender: "user" | "bot" }[]>([]);
+  const [messages, setMessages] = useState<
+    { text: string; sender: "user" | "bot" }[]
+  >([]);
   const [input, setInput] = useState("");
 
   const sendUserMessage = async () => {
@@ -53,16 +55,24 @@ const Chatbot = ({ onNavigate, onFilter }: ChatbotProps) => {
       <div className="chatbot-header">AI Chatbot</div>
       <div className="chatbot-body">
         {messages.map((msg, idx) => (
-          <p key={idx} className={msg.sender === "user" ? "user-msg" : "bot-msg"}>
+          <p
+            key={idx}
+            className={msg.sender === "user" ? "user-msg" : "bot-msg"}
+          >
             {msg.text}
           </p>
         ))}
       </div>
-      <input type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Ask something..." />
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Ask something..."
+      />
       <button onClick={sendUserMessage}>Send</button>
     </div>
   );
 };
 
+// Default export
 export default Chatbot;
-export type { ChatbotProps }
